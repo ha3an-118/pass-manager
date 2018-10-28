@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>FIXME</title>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+</head>
+<body>
+
+<h1>this is password manager</h1>
+<h3 style='colore:red' id='output'></h3>
+<script>
+$(document).ready(function(){
+    $.ajax({url:'test.xml',success : function(result){
+        
+        var temp=$(result).find('root').text;
+
+        $('#output').html(temp + "this is test");
+        
+        
+        
+        }});
+});
+
+
+</script>
+
+
+</body>
+</html>
