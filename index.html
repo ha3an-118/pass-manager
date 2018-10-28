@@ -16,9 +16,16 @@
 $(document).ready(function(){
     $.ajax({url:'test.xml',success : function(result){
         
-        var temp=$(result).find('root').text;
+        $(result).find('root').each(function(){
+            
+           
+            
+       $('#output').html( $(this).text());
+                $(this).createElement("root");
 
-        $('#output').html(temp + "this is test");
+
+            });
+
         
         
         
