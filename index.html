@@ -9,32 +9,43 @@
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 </head>
 <body>
+<div class='container-fluid'>
+<table class='table table-hover'>
+<thead>
+    <tr>
+        <th>username</th>
+        <th>password</th>
+        <th>site</th>
+        <th>question</th>
+        <th>answer</th>
+        <th>note</th>
+    </tr>
+</thead>
+<tbody id='output'>
+</tbody >
 
-<h1>this is password manager</h1>
-<h3 style='colore:red' id='output'></h3>
+</table>
+</div>
+
+
 <script>
 $(document).ready(function(){
+    var username,password,site,question,answer,note;
     $.ajax({url:'test.xml',success : function(result){
         
-        $(result).find('root').each(function(){
-            
-           
-            
-       $('#output').html( $(this).text());
-                $(this).createElement("root");
-
-
+        $(result).find('account').each(function(){
+                            $(this).find('username').each(function(){ username= $(this).text(); });            
+                            $(this).find('password').each(function(){ password= $(this).text(); });            
+                            $(this).find('site').each(function(){ site= $(this).text(); });            
+                            $(this).find('question').each(function(){ question= $(this).text(); });            
+                            $(this).find('answer').each(function(){ answer= $(this).text(); });            
+                            $(this).find('note').each(function(){ note= $(this).text(); });            
+     var out='<tr><td>'+username+'</td><td>'+password+'</td><td>'+site+'</td><td>'+question+'</td><td>'+answer+'</td><td>'+note+'</td></tr>';
+      $("#output").prepend(out);
             });
-
-        
-        
-        
         }});
 });
-
-
 </script>
-
 
 </body>
 </html>
