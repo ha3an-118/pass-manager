@@ -31,7 +31,7 @@
 <script>
 $(document).ready(function(){
     var username,password,site,question,answer,note;
-    $.ajax({url:'test.xml',success : function(result){
+    $.ajax({url:'pass.xml',success : function(result){
         
         $(result).find('account').each(function(){
                             $(this).find('username').each(function(){ username= $(this).text(); });            
